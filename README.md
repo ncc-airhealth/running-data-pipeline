@@ -22,13 +22,7 @@
 
 ## 시작하기
 
-이 프로젝트의 참여자라면 [`ncca-set-dev-env`](.agents/skills/ncca-set-dev-env/SKILL.md)에 따라 개발 환경부터 설정합시다.
-
-1. 환경 변수 설정
-2. uv 설치
-3. Git 설치
-4. GitHub CLI 설치
-5. Hugging Face CLI 설치
+이 프로젝트의 참여자라면 [`ncca-set-dev-env`](skills/ncca-set-dev-env/SKILL.md)에 따라 개발 환경부터 설정합시다.
 
 ## 관리 구조
 
@@ -42,7 +36,7 @@
 
 ## 세부 매뉴얼 목록
 
-세부 작업 메뉴얼은 [Agent Skills](https://agentskills.io/home) 형식으로 `.agents/skills/` 경로에 정리해 두었습니다.
+세부 작업 메뉴얼은 [Agent Skills](https://agentskills.io/home) 형식으로 `skills/` 경로에 정리해 두었습니다.
 
 | 이름 | 설명 |
 | --- | --- |

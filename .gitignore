@@ -1,13 +1,1 @@
-# root
-/*
-!.gitignore
-!README.md
-
-# agent skills
-!.agents/
-.agents/*
-!.agents/skills/
-.agents/skills/*
-!.agents/skills/ncca-data-manual/
-!.agents/skills/ncca-geovariable-manual/
-!.agents/skills/ncca-set-dev-env
+.DS_Store
