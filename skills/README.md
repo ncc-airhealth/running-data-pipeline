@@ -11,3 +11,4 @@
 - [Agent Skills specification](https://agentskills.io/specification)을 준수합니다.
 - 같은 지침을 여러 파일에 중복해서 작성하지 않습니다.
 - 초안을 작성한 뒤 [im-not-ai](https://github.com/epoko77-ai/im-not-ai)의 `humanize-korean` 스킬로 문체를 점검하는 것을 권장합니다.
+- 목차는 `# <메뉴얼 이름>`, `# 에이전트를 위한 추가 지침`으로 나누어 작성합니다.
