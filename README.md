@@ -1,30 +1,35 @@
 # Running Data Pipeline
 
-데이터 파이프라인 운영 정책
+데이터 파이프라인 운영 정책을 관리하는 저장소입니다.
 
-## 공간지리정보 데이터 파이프라인 소개
+## 간략한 소개
 
 - 보건의료, 사회, 환경 등 다양한 분야의 연구에서 공간 데이터가 필요합니다.
-- 하지만 공공기관이 제공하는 공간 데이터는 **분석에 바로 사용하기 어렵거나**, **도메인 지식이 필요한** 경우가 많습니다.
-- 이 프로젝트는 이런 문제를 해결하기 위해 공간 데이터를 수집·처리·적재하여 **분석 가능한 데이터**로 제공합니다.
+- 하지만 공공기관이 제공하는 공간 데이터는 **분석에 바로 사용하기 어렵거나, 도메인 지식이 필요한 경우**가 많습니다.
+- **공간지리정보 데이터 파이프라인**는 이런 문제를 해결하기 위해 공간 데이터를 수집·검토·처리하여 **분석 가능한 데이터**를 구축하는 프로젝트입니다.
 
-## 알아야 할 개념들
+## 프로젝트 참여 요건
 
-파이프라인 프로젝트 운영에 필요한 기본 개념입니다.
+이 프로젝트에 참여하려면 다음 개념과 도구를 이해하고 활용할 수 있어야 합니다.
 
-- [SpatioTemporal Asset Catalog](https://stacspec.org/en)
-- [STAC Static Catalog](https://github.com/radiantearth/stac-best-practices/blob/main/best-practices-catalog-and-collection.md#static-catalogs)
-- [Git](https://git-scm.com/)
-- [GitHub](https://github.com/about)
+- [SpatioTemporal Asset Catalog](https://stacspec.org/en) 및 [STAC Static Catalog](https://github.com/radiantearth/stac-best-practices/blob/main/best-practices-catalog-and-collection.md#static-catalogs)
+- [Git](https://git-scm.com/)과 [GitHub](https://github.com/about)를 이용한 협업
 - [Hugging Face Hub Datasets](https://huggingface.co/docs/hub/datasets)
-- [Python](https://www.python.org/)
-- [Astral uv](https://docs.astral.sh/uv/)
+- [Python](https://www.python.org/)과 [Astral uv](https://docs.astral.sh/uv/)
 
 ## 시작하기
 
 이 프로젝트의 참여자라면 [`ncca-set-dev-env`](skills/ncca-set-dev-env/SKILL.md)에 따라 개발 환경부터 설정합시다.
 
+AI 에이전트에게 다음과 같이 요청해도 좋습니다.
+
+```text
+skills/ncca-set-dev-env/SKILL.md의 지침에 따라 개발 환경을 설정해 줘.
+```
+
 ## 관리 구조
+
+본 프로젝트의 문서와 데이터는 Github, Hugging Face Hub를 통해 관리하고 있습니다.
 
 | 위치 | 관리 대상 |
 | --- | --- |
@@ -32,7 +37,7 @@
 | GitHub `ncc-airhealth/geovars` | 지리변수 연산 Python 라이브러리 |
 | Hugging Face `<namespace>/<dataset-id>` | 데이터, 처리 코드, 메타데이터 관리 |
 
-*STAC Collection 하나를 Hugging Face Dataset Repository 하나로 관리합니다.
+*STAC Collection 하나를 Hugging Face Dataset Repository 하나로 관리
 
 ## 세부 매뉴얼 목록
 
