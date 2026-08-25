@@ -15,27 +15,39 @@ description: ncca 데이터 파이프라인 개발 환경 설정 메뉴얼
 
 ### 2. uv 설치
 
-Python 패키지 의존성을 관리하기 위해 `uv`를 설치합니다.
+Python 의존성을 관리하기 위해 `uv`를 설치합니다.
 
 [공식 문서](https://docs.astral.sh/uv/getting-started/installation/)에 따라 설치하고, `uv --version`으로 검증해주세요.
 
-### 3. Git
+### 3. Git, Git LFS, Git Xet
 
-문서·코드·데이터의 버전 관리를 위해 `git`을 설치합니다.
+문서·코드·데이터의 버전 관리와 대용량 데이터 전송을 위해 Git, Git LFS, Git Xet을 설치합니다. 다음의 공식 문서를 참고해주세요.
 
-[공식 문서](https://git-scm.com/downloads)에 따라 설치하고, `git --version`으로 검증해주세요.
+a. [Git](https://git-scm.com/downloads) 설치
+b. [Git LFS](https://git-lfs.com/) 설치
+c. [Git Xet](https://huggingface.co/docs/hub/xet/using-xet-storage) 설치
+d. 다음 명령어로 설정과 설치 결과를 검증해주세요.
+
+```bash
+git --version
+git lfs version
+git xet --version
+```
 
 ### 4. GitHub CLI
 
-문서·코드의 버전 관리를 위해 `gh`를 설치합니다.
+문서·코드의 버전 관리를 위해 `gh`를 설치합니다. 다음의 공식 문서를 참고해주세요.
 
-[설치 문서](https://github.com/cli/cli#installation)와 [인증 문서](https://cli.github.com/manual/gh_auth_login)에 따라 설치/설정하고 `gh auth status`로 검증해주세요.
+a. [설치 문서](https://github.com/cli/cli#installation)에 따라 설치
+b. [인증 문서](https://cli.github.com/manual/gh_auth_login)에 따라 설정
+c. `gh auth status`로 검증
 
 ### 5. Hugging Face CLI
 
 데이터의 버전 관리를 위해 `hf`를 설치합니다.
 
-[공식 문서](https://huggingface.co/docs/huggingface_hub/en/guides/cli)에 따라 설치 및 로그인하고, `hf auth whoami`로 검증해주세요.
+a. [공식 문서](https://huggingface.co/docs/huggingface_hub/en/guides/cli)에 따라 설치 및 로그인
+b. `hf auth whoami`로 검증
 
 ### 6. 환경변수
 
@@ -44,11 +56,14 @@ Python 패키지 의존성을 관리하기 위해 `uv`를 설치합니다.
 | --- | --- |
 | NCCA_HF_NAMESPACE | husgbb |
 
-*데이터 안정화 이후, ncca-pipeline으로 이전 예정입니다.
+(데이터 안정화 이후, ncca-pipeline으로 이전 예정입니다.)
+
+> [!IMPORTANT]
+> Hugging Face 계정에 `<NCCA_HF_NAMESPACE>`의 데이터셋을 생성·수정할 권한이 있는지 확인해주세요.
 
 ### 7. Agent Skills 설치
 
-아마도 [Claude Code](https://claude.com/ko/product/claude-code), [Codex](https://openai.com/ko-KR/index/introducing-codex/) 등 코딩 에이전트 툴을 사용하는 것을 권장드립니다.
+파이프라인 작업에는 [Claude Code](https://claude.com/ko/product/claude-code), [Codex](https://openai.com/ko-KR/index/introducing-codex/) 등 코딩 에이전트 툴을 사용하는 것을 권장드립니다.
 
 다음의 스킬을 현재 사용하는 툴에 맞게 설치해주세요.
 (에이전트에게 설치를 요청하세요)

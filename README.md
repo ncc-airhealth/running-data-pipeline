@@ -2,7 +2,7 @@
 
 데이터 파이프라인 운영 정책을 관리하는 저장소입니다.
 
-## 간략한 소개
+## 지리공간 데이터 파이프라인 프로젝트 소개
 
 - 보건의료, 사회, 환경 등 다양한 분야의 연구에서 공간 데이터가 필요합니다.
 - 하지만 공공기관이 제공하는 공간 데이터는 **분석에 바로 사용하기 어렵거나, 도메인 지식이 필요한 경우**가 많습니다.
@@ -12,10 +12,15 @@
 
 이 프로젝트에 참여하려면 다음 개념과 도구를 이해하고 활용할 수 있어야 합니다.
 
-- [SpatioTemporal Asset Catalog](https://stacspec.org/en) 및 [STAC Static Catalog](https://github.com/radiantearth/stac-best-practices/blob/main/best-practices-catalog-and-collection.md#static-catalogs)
-- [Git](https://git-scm.com/)과 [GitHub](https://github.com/about)를 이용한 협업
-- [Hugging Face Hub Datasets](https://huggingface.co/docs/hub/datasets)
-- [Python](https://www.python.org/)과 [Astral uv](https://docs.astral.sh/uv/)
+| 대상 | 용도 |
+| --- | --- |
+| [SpatioTemporal Asset Catalog](https://stacspec.org/en) | 공간 데이터와 메타데이터를 표준화된 방식으로 관리 |
+| [STAC Static Catalog](https://github.com/radiantearth/stac-best-practices/blob/main/best-practices-catalog-and-collection.md#static-catalogs) | 데이터/메타데이터 구축·배포 |
+| [Git](https://git-scm.com/) | 코드/문서/데이터 파일의 변경 이력을 관리 |
+| [GitHub](https://github.com/about) | git 기반 코드 협업 |
+| [Hugging Face Hub Datasets](https://huggingface.co/docs/hub/datasets) | git 기반 데이터 협업 |
+| [Python](https://www.python.org/) | 데이터 수집·검토·처리 코드 작성 |
+| [Astral uv](https://docs.astral.sh/uv/) | Python 실행 환경과 의존성을 관리 |
 
 ## 시작하기
 
@@ -35,9 +40,7 @@ skills/ncca-set-dev-env/SKILL.md의 지침에 따라 개발 환경을 설정해 
 | --- | --- |
 | GitHub `ncc-airhealth/running-data-pipeline` | 운영 방법과 Agent Skills |
 | GitHub `ncc-airhealth/geovars` | 지리변수 연산 Python 라이브러리 |
-| Hugging Face `<namespace>/<dataset-id>` | 데이터, 처리 코드, 메타데이터 관리 |
-
-*STAC Collection 하나를 Hugging Face Dataset Repository 하나로 관리
+| Hugging Face `ncca-pipeline` | 데이터, 처리 코드, 메타데이터 관리 |
 
 ## 세부 매뉴얼 목록
 
@@ -45,6 +48,8 @@ skills/ncca-set-dev-env/SKILL.md의 지침에 따라 개발 환경을 설정해 
 
 | 이름 | 설명 |
 | --- | --- |
+| `ncca-skills-manual` | 작업 매뉴얼과 Agent Skill 작성 지침 |
 | `ncca-set-dev-env` | 개발 환경 설정 매뉴얼 |
 | `ncca-data-manual` | Hugging Face Hub 데이터·메타데이터 처리 및 저장 매뉴얼 |
 | `ncca-geovariable-manual` | 지리변수 라이브러리 관리 매뉴얼 |
+| `ncca-modeling-manual` | 대기오염 관측값 예측 모델링 매뉴얼 |
