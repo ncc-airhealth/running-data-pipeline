@@ -4,7 +4,7 @@
 
 ## 완료 조건
 
-다음의 조건들을 모두 만족하는 경우, [데이터 획득과 처리](reference/3-etl.md)으로 넘어갑니다.
+다음 조건을 모두 만족하면 이 단계를 완료하고 `SKILL.md`의 다음 미완료 단계로 넘어갑니다.
 
 - [ ] uv 설치 완료 - `uv --version`
 - [ ] git 설치 완료 - `git --version`
@@ -14,6 +14,7 @@
 - [ ] huggingface-cli 인증 완료 - `hf auth whoami`
 - [ ] git lfs 설치 완료 - `git lfs --version`
 - [ ] git xet 설치 완료 - `git xet --version`
+- [ ] Git LFS와 Git Xet 설정 완료 - `git lfs install`, `git xet install`
 
 ## 작업 순서
 
@@ -22,8 +23,8 @@
 1. [UV 공식 문서](https://docs.astral.sh/uv/getting-started/installation/)에 따라 `uv` 설치
 2. [Git 설치 페이지](https://git-scm.com/downloads)를 통해 `git` 설치
 3. [GitHub Cli 매뉴얼](https://cli.github.com/manual/)에 따라 `github cli` 설치 및 인증
-4. [Git LFS 설치 섹션](https://git-lfs.com/)에 따라 `git lfs` 설치
-5. [Git Xet 설치 섹션](https://huggingface.co/docs/hub/main/en/xet/using-xet-storage#git)에 따라 `git xet` 설치
+4. [Git LFS 설치 섹션](https://git-lfs.com/)에 따라 Git LFS 프로그램을 설치한 후, Git 연동 설정을 위해 `git lfs install`을 한 번 실행
+5. [Git Xet 설치 섹션](https://huggingface.co/docs/hub/main/en/xet/using-xet-storage#git)에 따라 Git Xet 프로그램을 설치한 후, Git 연동 설정을 위해 `git xet install`을 한 번 실행
 6. 운영체제와 셸에 맞게 다음의 환경변수를 영구 설정해주세요. (NCCA_HF_NAMESPACE=husgbb)
 7. (선택) Agent Skills를 설치해주세요. `npx skills install ncc-airhealth/running-data-pipeline`
 

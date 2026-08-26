@@ -4,16 +4,16 @@
 
 ## 완료 조건
 
-다음의 조건들을 모두 만족하는 경우, [메타데이터 작성·개선](reference/4-write-metadata.md)으로 넘어갑니다.
+다음 조건을 모두 만족하면 이 단계를 완료하고 `SKILL.md`의 다음 미완료 단계로 넘어갑니다.
 
 - [ ] 현재 다루는 데이터셋 저장소에서 저장해야할 데이터가 모두 저장되었다.
-- [ ] 데이터에 대한 LFS(xet) 추적이 활성화되어 있다.
+- [ ] 데이터 파일에 대한 Xet/LFS 추적 속성이 활성화되어 있다.
 
 ## 규칙
 
 - 데이터는 저장소의 `data/` 경로에 저장
 - '압축파일 안의 압축파일'을 허용하지 않음
-- `.gitattributes`에서 데이터 파일을 지정하여 LFS 추적 활성화
+- `.gitattributes`에서 데이터 파일 패턴을 지정하고 `git check-attr filter -- data/<file>`로 추적 속성 확인
 
 ## 작업
 
@@ -44,7 +44,7 @@ from pathlib import Path
 import httpx
 from tqdm import tqdm
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT_DIR / "data"
 YEARS = [2000, 2005, 2010, 2015, 2020]
 
@@ -57,6 +57,8 @@ def _download_single_data(year: int) -> None:
     """한 연도의 원본 데이터를 다운로드."""
     with httpx.Client() as client:
         ...
+
+
 if __name__ == "__main__":
     main()
 ```
@@ -78,8 +80,8 @@ from pathlib import Path
 import polars as pl
 from huggingface_hub import snapshot_download
 
-ROOT_DIR = Path(__file__).resolve().parent
-DATA_DIR = ROOT_DIR / "items"
+ROOT_DIR = Path(__file__).resolve().parents[1]
+DATA_DIR = ROOT_DIR / "data"
 NAMESPACE = os.environ["NCCA_HF_NAMESPACE"]
 SOURCE_DATASET = "<source-dataset-name>"
 SOURCE_REVISION = "<commit-sha>"
@@ -96,6 +98,7 @@ def main() -> None:
     df = pl.concat(dfs, how="vertical_relaxed")
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     df.write_parquet(DATA_DIR / "items.parquet")
+
 
 if __name__ == "__main__":
     main()
