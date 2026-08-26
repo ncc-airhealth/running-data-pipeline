@@ -1,0 +1,50 @@
+{
+  "stac_version": "1.1.0",
+  "type": "Collection",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
+  ],
+
+  "id": "",
+  "title": "",
+  "keywords": [],
+  "description": "",
+
+
+  "extent": {
+    "spatial": {
+      "bbox": []
+    },
+    "temporal": {
+      "interval": []
+    }
+  },
+
+  "license": "",
+  "providers": [
+    {
+      "url": "",
+      "name": "",
+      "roles": [
+        "licensor"
+      ]
+    },
+    {
+      "url": "https://huggingface.co/ncca-pipeline",
+      "name": "NCCA Pipeline",
+      "roles": [
+        "host",
+        "processor"
+      ]
+    }
+  ],
+
+  "links": [
+    {
+      "rel": "license",
+      "href": "",
+      "title": ""
+    }
+  ],
+  "summaries": {}
+}
