@@ -1,6 +1,6 @@
 # 4. 메타데이터 작성·개선
 
-데이터에 대해 조사⋅검토하고 STAC 메타데이터를 기록해주세요.
+데이터에 대해 조사·검토하고 STAC 메타데이터를 기록해 주세요.
 
 ## 완료 조건
 
@@ -15,23 +15,23 @@
 
 현재 다루는 데이터셋에 대한 정보를 일관성 있게 관리하기 위해 [STAC](https://stacspec.org/)을 기반으로 메타데이터를 작성합니다. STAC 메타데이터 작성 세부 규칙은 다음과 같습니다.
 
-- [STAC 1.1.0](https://github.com/radiantearth/stac-spec/tree/v1.1.0) 을 따른다.
+- [STAC 1.1.0](https://github.com/radiantearth/stac-spec/tree/v1.1.0)을 따른다.
 - [Static Catalogs](https://github.com/radiantearth/stac-spec/blob/v1.1.0/best-practices.md#static-catalogs) 방식으로 `data/` 경로에 JSON으로 저장한다.
 - [Self-contained with Assets](https://github.com/radiantearth/stac-spec/blob/v1.1.0/best-practices.md#self-contained-catalogs) 방식으로 데이터와 메타데이터를 참조한다.
-- collection metadata는 `data/collection.json`에 저장한다. (1개만 허용)
+- Collection 메타데이터는 `data/collection.json`에 저장한다. (1개만 허용)
 - STAC Core 또는 참조한 Extension의 필드만 허용한다.
 - 하나의 파일로 설명하는 데이터는 Collection Asset으로 참조한다.
 - 시간·공간 단위로 분할된 데이터는 Item Asset으로 참조하고 Collection에서 각 Item을 연결한다.
 
 ## 작업 순서
 
-[# 완료 조건](##-완료-조건)을 만족할 때까지 1-4단계를 반복한다.
+[완료 조건](#완료-조건)을 만족할 때까지 1~4단계를 반복한다.
 
 ### 1. Extension 선정
 
-[List of STAC Extensions](https://github.com/stac-extensions/stac-extensions.github.io/blob/main/README.md#list-of-stac-extensions)에서 데이터의 도메인에 맞는 Extension을 선정해주세요.
+[List of STAC Extensions](https://github.com/stac-extensions/stac-extensions.github.io/blob/main/README.md#list-of-stac-extensions)에서 데이터의 도메인에 맞는 Extension을 선정해 주세요.
 
-> [!IMPORTANT] 필수 extension
+> [!IMPORTANT] 필수 Extension
 > - 공통: [processing](https://github.com/stac-extensions/processing)
 > - GIS: [projection](https://github.com/stac-extensions/projection)
 > - Tabular: [table](https://github.com/stac-extensions/table) (GIS Vector 데이터 포함)
@@ -39,25 +39,24 @@
 
 ### 2. 메타데이터 뼈대 준비
 
-- [Collection JSON Metadata 뼈대](reference/collection-backbone.json)를 참고하여 `data/collection.json`을 준비합니다.
-- 필요한 경우(데이터가 시간·공간 단위로 분할된 경우),  Item JSON Metadata도 준비합니다.
+- [Collection JSON 메타데이터 뼈대](collection-backbone.json)를 참고하여 `data/collection.json`을 준비합니다.
+- 필요한 경우(데이터가 시간·공간 단위로 분할된 경우) Item JSON 메타데이터도 준비합니다.
 - 선정한 Extension을 `stac_extensions` 필드에 반영합니다.
 - 각 Extension의 공식 스펙을 참고하여 `data/collection.json`에 필요한 필드를 추가합니다.
 
 ### 3. STAC 메타데이터 작성
 
-- [### 2. 메타데이터 뼈대 준비](###-2.-메타데이터-뼈대-준비)에서 준비한 Collection/Item JSON Metadata의 각 필드를 작성합니다. 
-- 필요한 경우, 공식문서, 웹페이지, 연구자료 등 관련된 자료를 조사⋅검토합니다.
-- 필요한 경우, `scripts/explore.py`를 생성하여 `data/`의 데이터를 조사⋅검토합니다.
+- [2. 메타데이터 뼈대 준비](#2-메타데이터-뼈대-준비)에서 준비한 Collection/Item JSON 메타데이터의 각 필드를 작성합니다.
+- 필요한 경우 공식 문서, 웹페이지, 연구 자료 등 관련 자료를 조사·검토합니다.
+- 필요한 경우 `scripts/explore.py`를 생성하여 `data/`의 데이터를 조사·검토합니다.
 
 > [!NOTE] 처리 방법 기록
 > 수집·처리 정보는 `collection-backbone.json`의 `NCCA Pipeline` Provider에 기록합니다.
 
-
 ### 4. STAC 메타데이터 검증
 
 `scripts/explore.py`를 생성하여 STAC 메타데이터를 검증합니다.
-(아래의 예시 코드에서 필요한 검증 로직을 추가해주세요.)
+(아래 예시 코드에 필요한 검증 로직을 추가해 주세요.)
 
 ```python
 # /// script

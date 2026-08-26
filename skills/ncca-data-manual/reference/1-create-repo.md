@@ -13,11 +13,11 @@
 
 - 기존 데이터로 새 데이터셋을 만들 때는 별도 저장소 사용
 - 데이터셋 이름은 [kebab-case](https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case)에 따라 명명 (권장)
-- 기본적으로 `private` 레포지토리로 설정 (가공 및 재배포 정책이 확인된 경우 `public`으로 전환)
+- 기본적으로 `private` 저장소로 설정 (가공 및 재배포 정책이 확인된 경우 `public`으로 전환)
 
 ## 저장소 생성 방법 1: 웹에서 저장소를 만드는 경우
 
-다음 순서로 저장소를 생성해주세요.
+다음 순서로 저장소를 생성해 주세요.
 
 1. [New Dataset](https://huggingface.co/new-dataset)에 접속
 2. `Owner`를 `<NCCA_HF_NAMESPACE>`로 지정

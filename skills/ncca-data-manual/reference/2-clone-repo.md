@@ -18,7 +18,7 @@ git clone "https://huggingface.co/datasets/${NCCA_HF_NAMESPACE}/${DATASET_NAME}"
 cd "${DATASET_NAME}"
 ```
 
-로컬 저장소가 있으면 다음 명령어로 상태를 확인해주세요.
+로컬 저장소가 있으면 다음 명령어로 상태를 확인해 주세요.
 
 ```bash
 git remote get-url origin

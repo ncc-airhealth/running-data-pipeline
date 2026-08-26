@@ -17,8 +17,8 @@
 | [SpatioTemporal Asset Catalog](https://stacspec.org/en) | 공간 데이터와 메타데이터를 표준화된 방식으로 관리 |
 | [STAC Static Catalog](https://github.com/radiantearth/stac-best-practices/blob/main/best-practices-catalog-and-collection.md#static-catalogs) | 데이터/메타데이터 구축·배포 |
 | [Git](https://git-scm.com/) | 코드/문서/데이터 파일의 변경 이력을 관리 |
-| [GitHub](https://github.com/about) | git 기반 코드 협업 |
-| [Hugging Face Hub Datasets](https://huggingface.co/docs/hub/datasets) | git 기반 데이터 협업 |
+| [GitHub](https://github.com/about) | Git 기반 코드 협업 |
+| [Hugging Face Hub Datasets](https://huggingface.co/docs/hub/datasets) | Git 기반 데이터 협업 |
 | [Python](https://www.python.org/) | 데이터 수집·검토·처리 코드 작성 |
 | [Astral uv](https://docs.astral.sh/uv/) | Python 실행 환경과 의존성을 관리 |
 
@@ -34,7 +34,7 @@ skills/ncca-set-dev-env/SKILL.md의 지침에 따라 개발 환경을 설정해 
 
 ## 관리 구조
 
-본 프로젝트의 문서와 데이터는 Github, Hugging Face Hub를 통해 관리하고 있습니다.
+본 프로젝트의 문서와 데이터는 GitHub와 Hugging Face Hub를 통해 관리하고 있습니다.
 
 | 위치 | 관리 대상 |
 | --- | --- |
@@ -44,7 +44,7 @@ skills/ncca-set-dev-env/SKILL.md의 지침에 따라 개발 환경을 설정해 
 
 ## 세부 매뉴얼 목록
 
-세부 작업 메뉴얼은 [Agent Skills](https://agentskills.io/home) 형식으로 `skills/` 경로에 정리해 두었습니다.
+세부 작업 매뉴얼은 [Agent Skills](https://agentskills.io/home) 형식으로 `skills/` 경로에 정리해 두었습니다.
 
 | 이름 | 설명 |
 | --- | --- |

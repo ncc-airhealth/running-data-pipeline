@@ -9,7 +9,7 @@ NCCA Hugging Face 데이터셋을 구축·관리할 때 사용하는 매뉴얼�
 
 ## 작업 순서
 
-다음 순서로 작업해주세요. 각 단계의 완료 조건을 확인하고 완료된 단계는 생략합니다.
+다음 순서로 작업해 주세요. 각 단계의 완료 조건을 확인하고 완료된 단계는 생략합니다.
 
 0. [개발 환경 설정](reference/0-set-dev-env.md)
 1. [저장소 생성](reference/1-create-repo.md)
@@ -33,14 +33,14 @@ NCCA Hugging Face 데이터셋을 구축·관리할 때 사용하는 매뉴얼�
 
 ## Python 스크립트 작성 및 실행 방법
 
-다음의 규칙에 따라 Python 스크립트를 작성해주세요.
+다음의 규칙에 따라 Python 스크립트를 작성해 주세요.
 
 - 주석과 docstring은 한국어로 작성
 - [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)를 따름
 - `if __name__ == "__main__":` 블록에서 `main()`을 호출
 - [PEP 723](https://peps.python.org/pep-0723/) 스크립트 상단 의존성 메타데이터 작성
 
-스크립트를 실행할 때, `uv`를 사용하여 의존성 잠금 파일(`process.py.lock`)을 생성하고 실행해주세요. (재현성 확보 목적)
+스크립트를 실행할 때 `uv`를 사용하여 의존성 잠금 파일(`process.py.lock`)을 생성하고 실행해 주세요. (재현성 확보 목적)
 
 ```bash
 uv lock --script scripts/process.py
