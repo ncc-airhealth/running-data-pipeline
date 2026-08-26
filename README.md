@@ -24,12 +24,12 @@
 
 ## 시작하기
 
-이 프로젝트의 참여자라면 [`ncca-set-dev-env`](skills/ncca-set-dev-env/SKILL.md)에 따라 개발 환경부터 설정합시다.
+이 프로젝트의 참여자라면 [`ncca-data-manual`의 개발 환경 설정 지침](skills/ncca-data-manual/reference/0-set-dev-env.md)에 따라 개발 환경부터 설정합시다.
 
 AI 에이전트에게 다음과 같이 요청해도 좋습니다.
 
 ```text
-skills/ncca-set-dev-env/SKILL.md의 지침에 따라 개발 환경을 설정해 줘.
+skills/ncca-data-manual/reference/0-set-dev-env.md의 지침에 따라 개발 환경을 설정해 줘.
 ```
 
 ## 관리 구조
@@ -41,6 +41,9 @@ skills/ncca-set-dev-env/SKILL.md의 지침에 따라 개발 환경을 설정해 
 | GitHub `ncc-airhealth/running-data-pipeline` | 운영 방법과 Agent Skills |
 | GitHub `ncc-airhealth/geovars` | 지리변수 연산 Python 라이브러리 |
 | Hugging Face `ncca-pipeline` | 데이터, 처리 코드, 메타데이터 관리 |
+| Hugging Face `husgbb` | 데이터, 처리 코드, 메타데이터 시험 운영 |
+
+Hugging Face 데이터셋은 현재 개인 계정(`husgbb`)에서 시험 운영하며, 팀 도입 시 `ncca-pipeline` Organization으로 이전할 예정입니다.
 
 ## 세부 매뉴얼 목록
 
@@ -49,7 +52,6 @@ skills/ncca-set-dev-env/SKILL.md의 지침에 따라 개발 환경을 설정해 
 | 이름 | 설명 |
 | --- | --- |
 | `ncca-skills-manual` | 작업 매뉴얼과 Agent Skill 작성 지침 |
-| `ncca-set-dev-env` | 개발 환경 설정 매뉴얼 |
 | `ncca-data-manual` | Hugging Face Hub 데이터·메타데이터 처리 및 저장 매뉴얼 |
 | `ncca-geovariable-manual` | 지리변수 라이브러리 관리 매뉴얼 |
 | `ncca-modeling-manual` | 대기오염 관측값 예측 모델링 매뉴얼 |
