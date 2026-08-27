@@ -13,7 +13,12 @@
 
 - 데이터는 저장소의 `data/` 경로에 저장
 - 압축 파일 안에 압축 파일을 포함하지 않음
-- `.gitattributes`에서 데이터 파일 패턴을 지정하고 `git check-attr filter -- data/<file>`로 추적 속성 확인
+- `.gitattributes`에서 데이터 파일 패턴을 지정하고 `git check-attr filter -- "data/<file>"`로 추적 속성 확인
+
+## 작업 전 확인
+
+- 예상 데이터 크기, 개별 파일 크기, 파일 수, 폴더별 항목 수를 최신 [Storage limits](https://huggingface.co/docs/hub/storage-limits)와 대조해 주세요.
+- `data/`, `.git/lfs/objects`, Hugging Face Hub·Xet 캐시가 각각 저장공간을 사용하므로 로컬 여유공간을 확인해 주세요.
 
 ## 작업
 
@@ -25,6 +30,7 @@
 
 - 예시 코드를 그대로 적용하지 말고 저장소의 실제 입력 형식·출력 구조·검증 기준을 먼저 확인
 - 입력 버전을 임의로 선택하거나 최신 버전으로 바꾸지 않음
+- 재실행 시 기존 파일을 확인하고 누락되었거나 유효하지 않은 파일만 획득·처리
 - 오래 걸리는 작업에는 현재 단계와 진행률을 표시
 
 # `scripts/process.py` 예시

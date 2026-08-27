@@ -11,10 +11,18 @@
 
 ## 방법
 
-1. 변경사항을 검토하고 배포할 파일만 stage합니다.
-2. stage된 변경사항을 commit합니다.
-3. commit을 Hugging Face Dataset Repository에 push합니다.
+1. 작업 범위와 파일의 용도를 기준으로 변경사항을 검토하고, 사용자가 배포할 파일만 stage합니다.
+2. 다음 명령어로 stage된 파일과 변경 내용을 확인합니다.
+
+   ```bash
+   git status --short
+   git diff --cached --name-status
+   git diff --cached
+   ```
+
+3. 사용자가 stage된 변경사항을 commit합니다.
+4. 사용자의 명시적 승인 후 commit을 Hugging Face Dataset Repository에 push합니다.
 
 # AI 추가 지침
 
-- 사용자가 stage·commit을 마치면 commit 내용과 배포 대상을 검토한다.
+- Git을 기본으로 사용하며 다른 업로드 방식은 사용자와 협의
