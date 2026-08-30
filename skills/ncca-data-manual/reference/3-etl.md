@@ -43,6 +43,12 @@ uv lock --check --script scripts/process.py
 uv run --frozen --script scripts/process.py
 ```
 
+### 지리공간 의존성
+
+지리공간 처리 코드는 시스템에 설치된 GDAL·GEOS·PROJ가 없어도 실행할 수 있어야 합니다.
+DuckDB의 공간 기능은 잠긴 DuckDB 버전과 호환되는 `core` 저장소의 `spatial` 확장을 사용해 주세요.
+필요한 드라이버나 기능이 휠과 확장에 없으면 작업을 진행하기 전에 사용자와 대안을 정해 주세요.
+
 ## `scripts/process.py` 예시
 
 ### 예시 1: 데이터 다운로드
