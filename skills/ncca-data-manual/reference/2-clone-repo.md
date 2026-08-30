@@ -30,6 +30,18 @@ git rev-list --left-right --count HEAD...@{upstream}
 
 `@{upstream}`은 현재 로컬 브랜치의 추적 대상 원격 브랜치를 의미합니다.
 
+## 권장 저장소 구조
+
+데이터셋 저장소는 아래 구조로 구성하는 것을 권장합니다.
+
+```text
+<NCCA_HF_NAMESPACE>/<dataset-name>/
+├── data/           # 데이터와 메타데이터 저장
+├── scripts/        # 데이터 처리 코드와 의존성 관리
+├── .gitattributes  # Xet/LFS로 추적할 파일 패턴
+└── README.md       # 데이터 설명 문서
+```
+
 # AI 추가 지침
 
 - 로컬 머신의 저장소 여유공간을 확인하고 `git clone` 명령어를 실행한다.

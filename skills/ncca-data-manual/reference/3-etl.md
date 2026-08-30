@@ -26,16 +26,26 @@
 
 데이터를 코드로 획득 또는 처리하기 어려운 경우 직접 수행해도 좋습니다.
 
-# AI 추가 지침
+### Python 스크립트 작성 및 실행
 
-- 예시 코드를 그대로 적용하지 말고 저장소의 실제 입력 형식·출력 구조·검증 기준을 먼저 확인
-- 입력 버전을 임의로 선택하거나 최신 버전으로 바꾸지 않음
-- 재실행 시 기존 파일을 확인하고 누락되었거나 유효하지 않은 파일만 획득·처리
-- 오래 걸리는 작업에는 현재 단계와 진행률을 표시
+다음 규칙에 따라 Python 스크립트를 작성해 주세요.
 
-# `scripts/process.py` 예시
+- 주석과 docstring은 한국어로 작성
+- [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)를 따름
+- `if __name__ == "__main__":` 블록에서 `main()`을 호출
+- [PEP 723](https://peps.python.org/pep-0723/) 스크립트 상단 의존성 메타데이터 작성
 
-## 예시 1: 데이터 다운로드
+스크립트를 실행할 때 `uv`를 사용하여 의존성 잠금 파일(`process.py.lock`)을 생성하고 실행해 주세요.
+
+```bash
+uv lock --script scripts/process.py
+uv lock --check --script scripts/process.py
+uv run --frozen --script scripts/process.py
+```
+
+## `scripts/process.py` 예시
+
+### 예시 1: 데이터 다운로드
 
 ```python
 # /// script
@@ -67,7 +77,7 @@ if __name__ == "__main__":
     main()
 ```
 
-## 예시 2: 데이터 처리
+### 예시 2: 데이터 처리
 
 ```python
 # /// script
@@ -107,3 +117,10 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 ```
+
+# AI 추가 지침
+
+- 예시 코드를 그대로 적용하지 말고 저장소의 실제 입력 형식·출력 구조·검증 기준을 먼저 확인
+- 입력 버전을 임의로 선택하거나 최신 버전으로 바꾸지 않음
+- 재실행 시 기존 파일을 확인하고 누락되었거나 유효하지 않은 파일만 획득·처리
+- 오래 걸리는 작업에는 현재 단계와 진행률을 표시

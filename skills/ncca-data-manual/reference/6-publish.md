@@ -26,3 +26,4 @@
 # AI 추가 지침
 
 - Git을 기본으로 사용하며 다른 업로드 방식은 사용자와 협의
+- `git add`, `git stage`, `git commit`, `git push`는 실행하지 않고 사용자(사람)가 직접 수행하도록 요청
