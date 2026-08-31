@@ -7,13 +7,16 @@ description: NCCA Hugging Face 데이터셋 저장소의 데이터, STAC 메타�
 
 NCCA Hugging Face 데이터셋을 구축·관리할 때 사용하는 매뉴얼입니다.
 
+## 작업 전 준비
+
+필요한 명령어나 계정 인증이 준비되지 않았다면 먼저 [NCCA 데이터 파이프라인 개발 환경 설정](../ncca-set-dev-env/SKILL.md)을 완료해 주세요.
+
 ## 작업 순서
 
 데이터셋 전체를 구축할 때는 다음 순서로 작업해 주세요.
 일부 산출물만 작업할 때는 해당 단계의 참고 문서만 읽고 다른 단계의 지침은 적용하지 않습니다.
 각 단계의 완료 조건을 확인하고 완료된 단계는 생략합니다.
 
-0. [개발 환경 설정](reference/0-set-dev-env.md)
 1. [저장소 생성](reference/1-create-repo.md)
 2. [로컬 저장소 준비](reference/2-clone-repo.md)
 3. [데이터 획득과 처리](reference/3-etl.md)
