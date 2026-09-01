@@ -1,42 +1,60 @@
 # 5. Dataset Card 작성·개선
 
-저장소 루트의 `README.md`를 Hugging Face Dataset Card로 작성해요.
-데이터를 분석·연구에 활용하려는 사람이 적합성을 판단하고 올바르게 해석할 수 있도록 설명하세요.
+Dataset Card는 Hugging Face 데이터셋 저장소 루트의 `README.md`에 작성하는 데이터 설명 문서예요.
+데이터를 연구·분석에 활용하려는 사람이 데이터가 목적에 적합한지 판단하고 올바르게 해석할 수 있도록 작성하세요.
 
 ## 완료 조건
 
 다음 조건을 모두 만족하면 Dataset Card 작성이 끝나요.
 
-- [ ] README 상단의 YAML 메타데이터가 Hugging Face 형식에 맞음
-- [ ] `data/collection.json`, 실제 데이터, README의 내용이 서로 일치함
-- [ ] README만 읽고 데이터의 내용, 범위, 구조, 품질, 한계, 출처, 라이선스를 확인할 수 있음
+- [ ] `README.md` 상단의 YAML 메타데이터가 Hugging Face 형식을 따름
+- [ ] `data/collection.json`, 실제 데이터, `README.md`의 내용이 서로 일치함
+- [ ] [Dataset Card 템플릿](../assets/dataset-card-template.md)에 따라 현재 데이터에 필요한 내용을 작성함
+- [ ] 템플릿의 `{{ ... }}`와 `<!-- ... -->`가 남아 있지 않음
 - [ ] 비어 있거나 현재 데이터에 해당하지 않는 항목이 없음
+- [ ] 본문이 `글쓰기 규칙`의 기준에 맞음
 
-## 방법
+## 작성 방법
 
-- README 상단에 Hugging Face가 인식하는 YAML 메타데이터를 작성하세요.
-- `data/collection.json`과 실제 데이터를 근거로 Markdown 본문을 작성하세요.
-- 데이터의 목적, 시간·공간 범위, 관측 단위, 파일 구조, 변수와 단위, 품질과 한계, 출처와 라이선스를 데이터 특성에 맞게 설명하세요.
-- 수집·처리 과정이 데이터의 의미나 품질에 영향을 주었다면 그 내용과 영향을 설명하세요.
+- [Dataset Card 템플릿](../assets/dataset-card-template.md)을 복사하여 저장소 루트의 `README.md`로 사용하세요.
+  - 템플릿의 모든 `{{ ... }}`를 실제 내용으로 바꾸세요.
+  - 템플릿의 `<!-- ... -->` 안내에 따라 내용을 작성한 뒤 주석을 삭제하세요.
+  - 템플릿에서 현재 데이터를 이해하고 활용하는 데 필요한 항목만 작성하세요.
+  - 템플릿에서 현재 데이터에 해당하지 않는 표의 행이나 섹션은 제목까지 삭제하세요.
 - 낯선 전문 용어는 처음 나올 때 한 문장으로 설명하세요.
 - 원본 라이선스의 고지 의무나 사용자 요구가 있을 때만 별도 `LICENSE` 또는 `NOTICE` 파일을 추가하세요.
-- 다음 공식 문서의 최신 내용을 따르세요.
-  - [Dataset Cards](https://huggingface.co/docs/hub/datasets-cards)
-  - [Dataset Card metadata specification](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md)
-  - [Dataset Card template](https://github.com/huggingface/huggingface_hub/blob/main/src/huggingface_hub/templates/datasetcard_template.md)
-  - [Manual Configuration](https://huggingface.co/docs/hub/datasets-manual-configuration)
-- 공식 템플릿은 누락된 내용을 확인하는 기준으로 사용하세요.
-- 현재 데이터를 이해하고 활용하는 데 필요한 항목만 선택하세요.
+- `data/collection.json`과 실제 데이터를 근거로 Markdown 본문을 작성하세요.
+- Dataset Card의 역할과 메타데이터 사용 방법은 [Dataset Cards](https://huggingface.co/docs/hub/datasets-cards)를 확인하세요.
+- YAML 메타데이터의 필드와 값은 [Dataset Card metadata specification](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md)을 따르세요.
+- 공식 식별자가 없는 라이선스는 `license: other`로 지정하고 `license_name`과 `license_link`를 함께 작성하세요.
+- Dataset Viewer와 데이터 로더에서 파일 구성, `config`, `split`, 불러오기 옵션을 직접 설정해야 할 때는 [Manual Configuration](https://huggingface.co/docs/hub/datasets-manual-configuration)을 따르세요.
+
+> [!NOTE]
+> Dataset Viewer는 Hugging Face Hub에서 데이터 내용을 미리 보는 기능이에요.
+> 데이터 로더는 데이터 파일을 `config`와 `split`에 따라 불러오는 기능이에요.
+
+## 글쓰기 규칙
+
+Dataset Card의 설명은 해요체로 통일하세요.
+독자에게 작업을 안내할 때는 `~하세요`로 작성하고, 같은 문서에서 합쇼체와 섞어 쓰지 마세요.
+
+- 독자가 수행할 작업은 독자를 행동의 주체로 두고 능동형으로 작성하세요.
+- 파이프라인이나 도구의 동작을 설명할 때만 해당 시스템을 문장의 주체로 사용하세요.
+- 한 문장에는 하나의 정보나 행동만 담으세요.
+- 데이터의 사실, 조건, 제한을 바로 설명하고 내용 없이 흐름만 알리는 표현은 삭제하세요.
+- 명사형 표현보다 실제 행동을 나타내는 동사를 사용하세요.
+- 불필요한 한자어, 번역체, 은어를 줄이고 실제 동작과 결과가 드러나는 자연스러운 한국어로 작성하세요.
+- 모호한 범위나 정도 대신 확인된 조건, 수치, 단위를 구체적으로 작성하세요.
+- 기술 용어는 공식 표기를 따르고 같은 개념에는 같은 용어를 사용하세요.
+- 대상 독자에게 낯선 약어는 처음 나올 때 전체 이름과 함께 작성하세요.
+- 같은 단계의 제목은 핵심 용어를 포함한 명사형으로 통일하세요.
 
 # AI 추가 지침
 
-- 현재 데이터에 해당하는 YAML 메타데이터와 본문만 작성하세요.
 - 출처, 라이선스, 제공자 등 근거가 없는 정보는 추측하지 말고 사용자에게 근거를 요청하세요.
-- 데이터 수집·처리는 데이터의 의미, 품질, 한계에 영향을 주는 내용만 개념적으로 설명하세요.
-- 사용자가 요청하지 않았다면 일반적인 다운로드·불러오기 코드, 저장소 복제, 로컬 파일 읽기 방법을 제외하세요.
+- 사용자가 요청하지 않았다면 일반적인 Hugging Face 사용법, 다운로드·불러오기 코드, 저장소 복제, 로컬 파일 읽기 방법을 제외하세요.
 - 개발 환경, 패키지 설치, 환경 변수, 스크립트 실행, 의존성 잠금, 데이터 재현·검증·배포 절차와 Git 작업을 제외하세요.
-- 특수한 접근 조건이나 데이터별 config·split 선택이 필요할 때만 최소한으로 안내하세요.
+- 특수한 접근 조건이나 데이터별 `config`·`split` 선택이 필요할 때만 최소한으로 안내하세요.
 - 변수 조합, 결합 키, 조회 방법을 모르면 데이터를 잘못 해석하는 경우에만 이를 설명하세요.
-- 해당하지 않는 제목, 빈 항목, 일반적인 Hugging Face 사용법을 제외하세요.
 - Markdown 본문에서는 문장이 끝날 때마다 줄을 바꾸세요.
 - 데이터 파일이나 변수를 표로 정리할 때는 한 행에 하나씩 쓰고 용도를 함께 설명하세요.

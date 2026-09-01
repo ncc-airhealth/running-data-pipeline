@@ -8,10 +8,12 @@
 다음 조건을 모두 만족하면 STAC 메타데이터 작성이 끝나요.
 
 - [ ] `data/collection.json`이 STAC 1.1.0과 사용한 Extension의 스키마를 통과함
+- [ ] `scripts/review.py`가 데이터별 검증 항목을 통과함
 - [ ] 데이터의 의미, 범위, 구조, 품질, 출처, 라이선스가 근거와 일치함
 - [ ] 모든 데이터 파일이 Collection Asset 또는 Item Asset으로 참조됨
 - [ ] Collection과 Item의 구조 링크 및 Asset 경로가 유효함
 - [ ] 템플릿의 빈 값과 임시 값이 남아 있지 않음
+- [ ] `scripts/review.py`와 `scripts/review.py.lock`으로 검증을 다시 실행할 수 있음
 
 ## 메타데이터 작성 규칙
 
@@ -19,7 +21,10 @@
 
 - [STAC 1.1.0](https://github.com/radiantearth/stac-spec/tree/v1.1.0)을 따르세요.
 - [Static Catalog 권장 사항](https://github.com/radiantearth/stac-best-practices/blob/main/best-practices-catalog-and-collection.md)을 따르세요.
-- 데이터와 메타데이터를 함께 옮겨도 참조가 유지되도록 구조 링크와 Asset 경로에 상대 경로를 사용하세요.
+- 데이터와 메타데이터를 함께 옮길 수 있는 self-contained Static Catalog로 작성하세요.
+- 루트 Collection에는 `self` 링크를 추가하지 마세요.
+- `item`, `child`, `parent`, `root`, `collection` 구조 링크와 로컬 Asset 경로에는 상대 경로를 사용하세요.
+- `license`, `via`, `derived_from` 등 외부 자료를 가리키는 링크에는 절대 URL을 사용할 수 있어요.
 - Collection은 하나만 만들고 `data/collection.json`에 저장하세요.
 - STAC Core 또는 `stac_extensions`에서 선언한 Extension의 필드만 사용하세요.
 - 하나의 파일이나 하나의 논리 단위로 설명하는 데이터는 Collection Asset으로 참조하세요.
@@ -41,57 +46,41 @@
 > - Tabular: [table](https://github.com/stac-extensions/table) (GIS Vector 데이터 포함)
 > - Raster: [raster](https://github.com/stac-extensions/raster) 또는 [electro-optical](https://github.com/stac-extensions/eo)
 
-### 2. 메타데이터 뼈대 준비
+### 2. 메타데이터 템플릿 준비
 
-- [Collection JSON 메타데이터 뼈대](collection-backbone.json)를 복사하여 `data/collection.json`을 준비하세요.
+- [Collection JSON 메타데이터 템플릿](../assets/collection-template.json)을 복사하여 `data/collection.json`을 준비하세요.
 - 데이터가 시간·공간 단위로 나뉘면 Item JSON도 준비하세요.
 - 선택한 Extension의 스키마 URL을 `stac_extensions`에 추가하세요.
 - 각 Extension의 공식 명세를 확인하고 필요한 필드를 추가하세요.
 
 ### 3. STAC 메타데이터 작성
 
-- 준비한 Collection과 Item의 각 필드를 작성하세요.
+- 준비한 Collection과 Item의 각 필드 값을 작성하세요.
 - 공식 문서, 웹페이지, 연구 자료와 실제 데이터를 근거로 사용하세요.
-- 필요한 경우 `scripts/explore.py`를 만들어 데이터의 구조와 값을 조사하세요.
 
 > [!NOTE] 처리 방법 기록
-> 수집·처리 정보는 `collection-backbone.json`의 `NCCA Pipeline` Provider에 기록하세요.
+> 수집·처리 정보는 [Collection JSON 메타데이터 템플릿](../assets/collection-template.json)의 `NCCA Pipeline` Provider에 기록하세요.
 
-### 4. STAC 메타데이터 검증
+### 4. 데이터·메타데이터 검토
 
-`scripts/explore.py`를 만들고 다음 예시를 바탕으로 STAC 메타데이터를 검증하세요.
-실제 데이터의 파일 수, 스키마, 범위와 모든 데이터 파일의 역참조 검사도 추가하세요.
+[데이터 검토 코드 예시](../assets/data-review-example.py)를 참고하여 `scripts/review.py`를 작성하세요.
+예시의 `NotImplementedError`를 실제 데이터 검증 코드로 바꾼 뒤 실행하세요.
+데이터 조사 결과를 메타데이터에 반영하고 [완료 조건](#완료-조건)을 만족할 때까지 검토를 반복하세요.
 
-```python
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["pystac"]
-# ///
+`scripts/review.py`에서 다음 항목을 검증해야 해요.
 
-from pathlib import Path
+- 데이터 파일 누락, 스키마, 행 수, 중복, 결측, 값 범위, 시간·공간 범위 중 해당하는 항목
+- STAC 1.1.0과 사용한 Extension의 스키마
+- 모든 데이터 파일의 Collection Asset 또는 Item Asset 참조 여부
+- Collection과 Item의 구조 링크 및 Asset 경로
 
-from pystac import Collection
+PEP 723 형식으로 `scripts/review.py`의 의존성을 작성하세요.
+`uv`로 의존성 lock 파일을 생성하고 잠긴 의존성으로 검토를 실행하세요.
 
-ROOT_DIR = Path(__file__).resolve().parents[1]
-
-
-def main() -> None:
-    """STAC 메타데이터와 Asset 경로를 검증."""
-    collection = Collection.from_file(str(ROOT_DIR / "data/collection.json"))
-    collection.validate_all()
-
-    assets = list(collection.assets.values())
-    for item in collection.get_items(recursive=True):
-        assets.extend(item.assets.values())
-
-    for asset in assets:
-        href = asset.get_absolute_href()
-        if href is None or not Path(href).is_file():
-            raise FileNotFoundError(href)
-
-
-if __name__ == "__main__":
-    main()
+```bash
+uv lock --script scripts/review.py
+uv lock --check --script scripts/review.py
+uv run --frozen --script scripts/review.py
 ```
 
 # AI 추가 지침
