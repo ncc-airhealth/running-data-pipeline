@@ -8,7 +8,6 @@
 - [ ] 로컬 `HEAD`가 추적 대상 원격 브랜치보다 뒤처져 있지 않음
 - [ ] Xet/LFS로 추적할 대용량·바이너리 데이터 파일이 `.gitattributes`에 지정됨
 - [ ] 작업 트리와 스테이징된 변경 내용에 배포하면 안 되는 파일이나 정보가 없음
-- [ ] 잠긴 의존성으로 `scripts/review.py`를 실행하여 데이터와 STAC 메타데이터 검증을 통과함
 - [ ] 데이터, `data/collection.json`, `README.md`가 서로 일치하고 각 단계의 검증을 통과함
 - [ ] 배포할 커밋이 Hugging Face의 대상 원격 브랜치에 반영됨
 - [ ] 공개 범위를 `public`으로 변경한다면 공개 조건을 모두 충족함
@@ -18,14 +17,7 @@
 ### 산출물 검토
 
 1. [로컬 데이터셋 저장소 준비](2-clone-repo.md)의 명령어로 원격 동기화 상태를 다시 확인하세요.
-2. 다음 명령어로 데이터와 STAC 메타데이터 검증을 다시 실행하세요.
-
-   ```bash
-   uv lock --check --script scripts/review.py
-   uv run --frozen --script scripts/review.py
-   ```
-
-3. 데이터 획득·처리, STAC 메타데이터, Dataset Card의 완료 조건을 다시 확인하세요.
+2. 데이터 획득·처리, STAC 메타데이터, Dataset Card의 완료 조건을 다시 확인하세요.
 
 ### Xet/LFS 추적
 

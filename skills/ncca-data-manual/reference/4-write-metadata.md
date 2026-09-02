@@ -29,6 +29,7 @@
 - STAC Core 또는 `stac_extensions`에서 선언한 Extension의 필드만 사용하세요.
 - 하나의 파일이나 하나의 논리 단위로 설명하는 데이터는 Collection Asset으로 참조하세요.
 - 시간·공간 단위로 나뉜 데이터는 Item Asset으로 참조하고 Collection에서 각 Item을 연결하세요.
+- Item JSON의 파일 이름은 [데이터 획득·처리 단계에서 정한 네이밍 컨벤션](3-etl.md#파일-네이밍-컨벤션)을 따르세요.
 
 ## 작업 순서
 
@@ -41,7 +42,7 @@
 > [!IMPORTANT]
 > 다음 Extension을 데이터 유형에 맞게 사용하세요.
 >
-> - 공통: [processing](https://github.com/stac-extensions/processing)
+> - 공통: [processing](https://github.com/stac-extensions/processing), [file](https://github.com/stac-extensions/file)
 > - GIS: [projection](https://github.com/stac-extensions/projection)
 > - Tabular: [table](https://github.com/stac-extensions/table) (GIS Vector 데이터 포함)
 > - Raster: [raster](https://github.com/stac-extensions/raster) 또는 [electro-optical](https://github.com/stac-extensions/eo)
@@ -57,9 +58,8 @@
 
 - 준비한 Collection과 Item의 각 필드 값을 작성하세요.
 - 공식 문서, 웹페이지, 연구 자료와 실제 데이터를 근거로 사용하세요.
-
-> [!NOTE] 처리 방법 기록
-> 수집·처리 정보는 [Collection JSON 메타데이터 템플릿](../assets/collection-template.json)의 `NCCA Pipeline` Provider에 기록하세요.
+- STAC 생성 코드가 있다면 Collection과 Item JSON을 직접 수정하지 마세요. 생성 코드를 수정한 뒤 메타데이터를 다시 생성하고 검증하세요.
+- Asset의 파일 크기와 체크섬은 File Info Extension의 `file:size`와 `file:checksum`으로 기록하세요.
 
 ### 4. 데이터·메타데이터 검토
 

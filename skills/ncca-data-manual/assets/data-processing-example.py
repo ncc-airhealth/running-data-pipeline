@@ -21,6 +21,10 @@ SOURCE_REVISION = "<commit-sha>"
 
 def main() -> None:
     """데이터 처리."""
+    output_path = DATA_DIR / "items.parquet"
+    if _is_valid_output(output_path):
+        return
+
     src_dir = snapshot_download(
         repo_id=f"{NAMESPACE}/{SOURCE_DATASET}",
         repo_type="dataset",
@@ -30,7 +34,18 @@ def main() -> None:
     dfs = [pl.read_csv(f) for f in Path(src_dir).rglob("*.csv")]
     df = pl.concat(dfs, how="vertical_relaxed")
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    df.write_parquet(DATA_DIR / "items.parquet")
+    df.write_parquet(output_path)
+
+
+def _is_valid_output(output_path: Path) -> bool:
+    """기존 Parquet 출력의 유효성을 확인."""
+    if not output_path.is_file():
+        return False
+    try:
+        pl.scan_parquet(output_path).collect_schema()
+    except (OSError, pl.exceptions.PolarsError):
+        return False
+    return True
 
 
 if __name__ == "__main__":

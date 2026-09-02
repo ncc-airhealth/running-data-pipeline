@@ -12,10 +12,11 @@ Dataset Card는 Hugging Face 데이터셋 저장소 루트의 `README.md`에 작
 - [ ] [Dataset Card 템플릿](../assets/dataset-card-template.md)에 따라 현재 데이터에 필요한 내용을 작성함
 - [ ] 템플릿의 `{{ ... }}`와 `<!-- ... -->`가 남아 있지 않음
 - [ ] 비어 있거나 현재 데이터에 해당하지 않는 항목이 없음
-- [ ] 본문이 `글쓰기 규칙`의 기준에 맞음
+- [ ] 본문이 [테크니컬 라이팅](technical-writing.md)의 기준에 맞음
 
 ## 작성 방법
 
+- [테크니컬 라이팅](technical-writing.md)을 따라 Dataset Card를 작성하세요.
 - [Dataset Card 템플릿](../assets/dataset-card-template.md)을 복사하여 저장소 루트의 `README.md`로 사용하세요.
   - 템플릿의 모든 `{{ ... }}`를 실제 내용으로 바꾸세요.
   - 템플릿의 `<!-- ... -->` 안내에 따라 내용을 작성한 뒤 주석을 삭제하세요.
@@ -27,27 +28,14 @@ Dataset Card는 Hugging Face 데이터셋 저장소 루트의 `README.md`에 작
 - Dataset Card의 역할과 메타데이터 사용 방법은 [Dataset Cards](https://huggingface.co/docs/hub/datasets-cards)를 확인하세요.
 - YAML 메타데이터의 필드와 값은 [Dataset Card metadata specification](https://github.com/huggingface/hub-docs/blob/main/datasetcard.md)을 따르세요.
 - 공식 식별자가 없는 라이선스는 `license: other`로 지정하고 `license_name`과 `license_link`를 함께 작성하세요.
+- `license_name`은 `^[a-z0-9-.]+$` 형식의 Hugging Face Hub 식별자로 작성하세요. 한국어 공식 명칭은 Dataset Card 본문과 STAC 라이선스 링크의 `title`에 작성하세요.
 - Dataset Viewer와 데이터 로더에서 파일 구성, `config`, `split`, 불러오기 옵션을 직접 설정해야 할 때는 [Manual Configuration](https://huggingface.co/docs/hub/datasets-manual-configuration)을 따르세요.
+- 여러 입력을 조인하거나 값을 대체했다면 각 입력에서 가져온 값과 적용한 규칙을 설명하세요.
 
 > [!NOTE]
 > Dataset Viewer는 Hugging Face Hub에서 데이터 내용을 미리 보는 기능이에요.
 > 데이터 로더는 데이터 파일을 `config`와 `split`에 따라 불러오는 기능이에요.
 
-## 글쓰기 규칙
-
-Dataset Card의 설명은 해요체로 통일하세요.
-독자에게 작업을 안내할 때는 `~하세요`로 작성하고, 같은 문서에서 합쇼체와 섞어 쓰지 마세요.
-
-- 독자가 수행할 작업은 독자를 행동의 주체로 두고 능동형으로 작성하세요.
-- 파이프라인이나 도구의 동작을 설명할 때만 해당 시스템을 문장의 주체로 사용하세요.
-- 한 문장에는 하나의 정보나 행동만 담으세요.
-- 데이터의 사실, 조건, 제한을 바로 설명하고 내용 없이 흐름만 알리는 표현은 삭제하세요.
-- 명사형 표현보다 실제 행동을 나타내는 동사를 사용하세요.
-- 불필요한 한자어, 번역체, 은어를 줄이고 실제 동작과 결과가 드러나는 자연스러운 한국어로 작성하세요.
-- 모호한 범위나 정도 대신 확인된 조건, 수치, 단위를 구체적으로 작성하세요.
-- 기술 용어는 공식 표기를 따르고 같은 개념에는 같은 용어를 사용하세요.
-- 대상 독자에게 낯선 약어는 처음 나올 때 전체 이름과 함께 작성하세요.
-- 같은 단계의 제목은 핵심 용어를 포함한 명사형으로 통일하세요.
 
 # AI 추가 지침
 
@@ -57,4 +45,5 @@ Dataset Card의 설명은 해요체로 통일하세요.
 - 특수한 접근 조건이나 데이터별 `config`·`split` 선택이 필요할 때만 최소한으로 안내하세요.
 - 변수 조합, 결합 키, 조회 방법을 모르면 데이터를 잘못 해석하는 경우에만 이를 설명하세요.
 - Markdown 본문에서는 문장이 끝날 때마다 줄을 바꾸세요.
-- 데이터 파일이나 변수를 표로 정리할 때는 한 행에 하나씩 쓰고 용도를 함께 설명하세요.
+- 같은 규칙으로 반복되는 데이터 파일은 경로 패턴으로 묶어 표의 한 행에 작성하세요. 정확한 파일 목록은 STAC Asset으로 제공하세요.
+- 반복되지 않는 데이터 파일과 변수는 표의 한 행에 하나씩 작성하고 용도를 함께 설명하세요.
