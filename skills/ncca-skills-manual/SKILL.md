@@ -3,7 +3,7 @@ name: ncca-skills-manual
 description: NCCA 작업 매뉴얼(Agent Skill) 작성 방법. 매뉴얼을 새로 작성하거나 수정·검토·배포할 때 사용한다.
 ---
 
-# NCCA 매뉴얼 작성 매뉴얼
+# NCCA 스킬 작성 매뉴얼
 
 데이터 파이프라인 프로젝트에서 반복적으로 수행하는 작업을 문서화하는 매뉴얼이에요.
 
