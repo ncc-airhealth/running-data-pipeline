@@ -53,6 +53,6 @@ Hugging Face 데이터셋은 현재 개인 계정(`husgbb`)에서 시험 운영�
 | --- | --- |
 | `ncca-skills-manual` | 작업 매뉴얼과 Agent Skill 작성 지침 |
 | `ncca-set-dev-env` | 데이터 파이프라인 개발 환경 설정 매뉴얼 |
-| `ncca-data-manual` | Hugging Face Hub 데이터·메타데이터 처리 및 저장 매뉴얼 |
+| `ncca-datarepo-manual` | NCCA 데이터 저장소 구축 및 데이터·메타데이터 관리 매뉴얼 |
 | `ncca-geovariable-manual` | 지리변수 라이브러리 관리 매뉴얼 |
 | `ncca-modeling-manual` | 대기오염 관측값 예측 모델링 매뉴얼 |
